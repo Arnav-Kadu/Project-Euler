@@ -239,19 +239,25 @@ void local()
     cerr << '\n';
 }
 /****************************************YAHA HAI ASLI MAAL***************************************/
+//return all primes b/w 1 to n
+vector<int> sieve(int n)
+{
+   vector<bool> is(n + 1, true);
+   vector<int> primes;
+   for (int i = 2; i * i <= n; i++) {
+      if (is[i]) {
+         for (int p = i * i; p <= n; p += i)is[p] = false;
+      }
+   }
+   for (int i = 2; i <= n; i++)
+      if (is[i])primes.push_back(i);
+   return primes;
+}
+
 void solve()
 {
-    int n;
-    cin >> n;
-    int prod=n;
-    prod*=(n+1);
-    prod*=(2*n+1);
-    prod/=6;
-    int sum=(n/2)*(n+1);
-    sum*=sum;
-    cout<<prod<<endl;
-    cout<<sum<<endl;
-    cout<<sum-prod;
+   vector<int>check=sieve(1e7);
+   cout<<check[10000]<<endl;
 }
 int32_t main()
 {

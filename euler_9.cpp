@@ -239,19 +239,20 @@ void local()
     cerr << '\n';
 }
 /****************************************YAHA HAI ASLI MAAL***************************************/
+int check(int a,int b,int c){
+    return a*a+b*b==c*c;
+}
 void solve()
 {
-    int n;
-    cin >> n;
-    int prod=n;
-    prod*=(n+1);
-    prod*=(2*n+1);
-    prod/=6;
-    int sum=(n/2)*(n+1);
-    sum*=sum;
-    cout<<prod<<endl;
-    cout<<sum<<endl;
-    cout<<sum-prod;
+    for(int a=1;a<=1000;a++){
+        for(int b=a;b<=1000;b++){
+            for(int c=b;c<=1000;c++){
+                if(a+b+c==1000 && check(a,b,c)){
+                    cout<<a*b*c<<endl;
+                }
+            }
+        }
+    }
 }
 int32_t main()
 {
